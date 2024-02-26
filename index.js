@@ -2,12 +2,13 @@
 import {userRouter} from './controller/UserController.js';
 import {productRouter} from './controller/ProductController.js';
 import cookieParser from "cookie-parser"
-import {errorHandling} from './middleware/ErrorHandling.js';
+import {errorHandling} from './middleware/Errorhandling.js';
 import path from 'path'
 import cors from 'cors'
 import express  from 'express'
 import {config} from 'dotenv'
 config()
+// 
 const app = express()
 const port = +process.env.PORT || 5000
 //middleware
