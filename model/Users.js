@@ -6,8 +6,8 @@ class Users {
     async fetchUsers(req, res) {
         try {
             const qry = `
-                SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPwd, userRole
-                FROM User;
+                SELECT userID, firstName, lastName, userAge, Gender, emailAdd, userPass, userProfile
+                FROM Users;
             `;
             db.query(qry, (err, results) => {
                 if (err) throw err;
@@ -25,8 +25,8 @@ class Users {
     async fetchUser(req, res) {
         try {
             const qry = `
-                SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPwd, userRole
-                FROM User
+                SELECT userID, firstName, lastName, userAge, Gender, emailAdd, userPass, userProfile
+                FROM Users
                 WHERE userID = ${req.params.id};
             `;
             db.query(qry, (err, result) => {
@@ -51,7 +51,7 @@ class Users {
                 userPwd: data.userPwd
             };
             const qry = `
-                INSERT INTO User
+                INSERT INTO Users
                 SET ?;
             `;
             db.query(qry, [data], (err) => {
@@ -82,7 +82,7 @@ class Users {
                 return res.status(400).json({ msg: 'User ID is required' });
             }
             const qry = `
-                DELETE FROM User
+                DELETE FROM Users
                 WHERE userID = ?;
             `;
             db.query(qry, [prodID], (err) => {
@@ -105,8 +105,8 @@ class Users {
         try {
             const { emailAdd, userPwd } = req.body;
             const qry = `
-                SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPwd, userRole
-                FROM User
+                SELECT userID, firstName, lastName, userAge, Gender, emailAdd, userPass, userProfile
+                FROM Users
                 WHERE emailAdd = '${emailAdd}';
             `;
             db.query(qry, async (err, result) => {
@@ -146,7 +146,7 @@ class Users {
     async updateUser(req, res) {
         try {
             const qry = `
-                UPDATE User
+                UPDATE Users
                 SET ?
                 WHERE userID = ?;
             `;
