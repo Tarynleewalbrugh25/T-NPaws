@@ -2,7 +2,7 @@
 import {userRouter} from './controller/UserController.js';
 import {productRouter} from './controller/ProductController.js';
 import cookieParser from "cookie-parser"
-import {errorHandling} from './middleware/ErrorHanding.js';
+import {errorHandling} from './middleware/ErrorHandling.js';
 import path from 'path'
 import cors from 'cors'
 import express  from 'express'
@@ -40,4 +40,4 @@ app.use(errorHandling)
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`);
 })
-///done
+
