@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
-        <div class="row fixed-bottom">
-            <p class="display-2"> Paws by T&N &copy; {{ currentYear }}</p>
+        <div class="row fixed-bottom" id="footer">
+            <p class="display-6 text-black"> Paws by T&N &copy; {{ currentYear }}</p>
         </div>
 
     </div>
@@ -21,5 +21,8 @@
 </script>
 
 <style scoped>
+#footer{
+    background-color: #A3C18F;
+}
 
 </style>

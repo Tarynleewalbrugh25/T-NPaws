@@ -1,11 +1,10 @@
 <template>
   <NavBar/>
   <main>
-    <router-link/>
+    <router-view/>
   </main>
   <Footer/>
   
-  <router-view/>
 </template>
 
 <script>
