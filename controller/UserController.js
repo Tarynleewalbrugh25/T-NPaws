@@ -26,7 +26,7 @@ userRouter.get('/:id', (req, res) => {
     }
 });
 // Add a user
-userRouter.post('/register', bodyParser.json(), (req, res) => {
+userRouter.post('/signup', bodyParser.json(), (req, res) => {
     try {
         users.createUser(req, res);
     } catch (e) {
@@ -37,7 +37,7 @@ userRouter.post('/register', bodyParser.json(), (req, res) => {
     }
 });
 // Delete a user
-userRouter.delete('/deleteUser/:id', bodyParser.json(), (req, res) => {
+userRouter.delete('user/:id', bodyParser.json(), (req, res) => {
     try {
         users.deleteUser(req, res); // Changed from products to users
     } catch (e) {
@@ -48,7 +48,7 @@ userRouter.delete('/deleteUser/:id', bodyParser.json(), (req, res) => {
     }
 });
 // Update a user
-userRouter.patch('/updateUser/:id', bodyParser.json(), (req, res) => {
+userRouter.patch('user/:id ', bodyParser.json(), (req, res) => {
     try {
         users.updateUser(req, res); // Changed from products to users
     } catch (e) {
