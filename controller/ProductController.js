@@ -1,60 +1,99 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import {products} from '../model/index.js'
+import express from 'express';
+import bodyParser from 'body-parser';
+import { products } from '../model/index.js';
 
-const productRouter = express.Router()
+const productRouter = express.Router();
 
-//fetch all products
-productRouter.get('/', (req, res)=>{
-    try{
-        products.fetchProducts(req, res)
-    }catch(e){
+productRouter.use(bodyParser.json()); // Apply bodyParser.json() middleware to parse JSON requests
+
+// Fetch all products
+productRouter.get('/', async (req, res) => {
+    try {
+        const allProducts = await products.fetchAllProducts();
         res.json({
             status: res.statusCode,
-            msg: 'Failed to retrieve a product'
-        })
-    } 
-})
-productRouter.get('/:id', (req, res)=>{
-    try{
-        products.fetchProducts(req, res)
-    }catch(e){
-        res.json({
-            status: res.statusCode,
-            msg: 'failed to get it'
-        })
+            products: allProducts
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: 500,
+            msg: 'Failed to retrieve products'
+        });
     }
-})
-productRouter.post('/addProduct',bodyParser.json(),(req, res)=>{
-    try{
-        products.addProduct(req, res)
-    }catch(e){
+});
+
+// Fetch a product by ID
+productRouter.get('/:id', async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const product = await products.fetchProductById(productId);
         res.json({
             status: res.statusCode,
+            product: product
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: 500,
+            msg: 'Failed to retrieve product'
+        });
+    }
+});
+
+// Add a new product
+productRouter.post('/addProduct', async (req, res) => {
+    try {
+        const newProduct = await products.addProduct(req.body);
+        res.json({
+            status: res.statusCode,
+            product: newProduct,
+            msg: 'Product added successfully'
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: 500,
             msg: 'Failed to add new product'
-        })
+        });
     }
-})
-productRouter.delete('/deleteProduct/:id', bodyParser.json(), (req, res)=>{
-    try{
-        products.deleteProduct(req, res)
-    }catch(e){
+});
+
+// Delete a product by ID
+productRouter.delete('/deleteProduct/:id', async (req, res) => {
+    try {
+        const productId = req.params.id;
+        await products.deleteProduct(productId);
         res.json({
             status: res.statusCode,
-            msg: 'Failed to remove product try again later'
-        })
+            msg: 'Product deleted successfully'
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: 500,
+            msg: 'Failed to remove product'
+        });
     }
-})
-productRouter.patch('/updateProduct/:id', bodyParser.json(), (req, res)=>{
-    try{
-        products.updateProduct(req, res)
-    }catch(e){
+});
+
+// Update a product by ID
+productRouter.patch('/updateProduct/:id', async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const updatedProduct = await products.updateProduct(productId, req.body);
         res.json({
             status: res.statusCode,
-            msg: 'Failed to update product try again later'
-        })
+            product: updatedProduct,
+            msg: 'Product updated successfully'
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: 500,
+            msg: 'Failed to update product'
+        });
     }
-})
-export{
-    productRouter
-}
+});
+
+export { productRouter };

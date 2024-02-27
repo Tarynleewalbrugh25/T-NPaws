@@ -10,7 +10,10 @@ class Users {
                 FROM Users;
             `;
             db.query(qry, (err, results) => {
-                if (err) throw err;
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ msg: 'Internal Server Error' });
+                }
                 res.json({
                     status: res.statusCode,
                     results
@@ -27,10 +30,13 @@ class Users {
             const qry = `
                 SELECT userID, firstName, lastName, userAge, Gender, emailAdd, userPass, userProfile
                 FROM Users
-                WHERE userID = ${req.params.id};
+                WHERE userID = ?;
             `;
-            db.query(qry, (err, result) => {
-                if (err) throw err;
+            db.query(qry, [req.params.id], (err, result) => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ msg: 'Internal Server Error' });
+                }
                 res.json({
                     status: res.statusCode,
                     result
@@ -45,29 +51,33 @@ class Users {
     async createUser(req, res) {
         try {
             let data = req.body;
-            data.userPwd = await hash(data?.userPwd, 10);
+            if (!data.emailAdd || !data.userPwd) {
+                return res.status(400).json({ msg: 'Email and password are required' });
+            }
+            
+            data.userPwd = await hash(data.userPwd, 10);
+
             let user = {
                 emailAdd: data.emailAdd,
                 userPwd: data.userPwd
             };
+
             const qry = `
                 INSERT INTO Users
                 SET ?;
             `;
-            db.query(qry, [data], (err) => {
+
+            db.query(qry, user, (err) => {
                 if (err) {
-                    res.json({
-                        status: res.statusCode,
-                        msg: 'Please use another email address'
-                    });
-                } else {
-                    let token = createToken(user);
-                    res.json({
-                        status: res.statusCode,
-                        token,
-                        msg: 'You\'re registered'
-                    });
+                    console.error('Error creating user:', err);
+                    return res.status(400).json({ msg: 'Please use another email address' });
                 }
+                let token = createToken(user); // Assuming createToken function exists
+                res.json({
+                    status: res.statusCode,
+                    token,
+                    msg: 'You\'re registered'
+                });
             });
         } catch (err) {
             console.error(err);
@@ -77,18 +87,18 @@ class Users {
 
     async deleteUser(req, res) {
         try {
-            const prodID = req.params.id;
-            if (!prodID) {
+            const userId = req.params.id;
+            if (!userId) {
                 return res.status(400).json({ msg: 'User ID is required' });
             }
             const qry = `
                 DELETE FROM Users
                 WHERE userID = ?;
             `;
-            db.query(qry, [prodID], (err) => {
+            db.query(qry, [userId], (err) => {
                 if (err) {
-                    console.error('Error deleting User:', err);
-                    return res.status(500).json({ msg: 'Failed to delete User' });
+                    console.error('Error deleting user:', err);
+                    return res.status(500).json({ msg: 'Failed to delete user' });
                 }
                 res.json({
                     status: res.statusCode,
@@ -107,17 +117,20 @@ class Users {
             const qry = `
                 SELECT userID, firstName, lastName, userAge, Gender, emailAdd, userPass, userProfile
                 FROM Users
-                WHERE emailAdd = '${emailAdd}';
+                WHERE emailAdd = ?;
             `;
-            db.query(qry, async (err, result) => {
-                if (err) throw err;
-                if (!result?.length) {
+            db.query(qry, [emailAdd], async (err, result) => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ msg: 'Internal Server Error' });
+                }
+                if (!result.length) {
                     res.json({
                         status: res.statusCode,
-                        msg: 'wrong email address'
+                        msg: 'Wrong email address'
                     });
                 } else {
-                    const validPass = await compare(userPwd, result[0].userPwd);
+                    const validPass = await compare(userPwd, result[0].userPass);
                     if (validPass) {
                         const token = createToken({
                             emailAdd,
@@ -125,7 +138,7 @@ class Users {
                         });
                         res.json({
                             status: res.statusCode,
-                            msg: 'you are logged in',
+                            msg: 'You are logged in',
                             token,
                             result: result[0]
                         });
@@ -153,8 +166,8 @@ class Users {
             const { prodID } = req.body;
             db.query(qry, [req.body, prodID], (err) => {
                 if (err) {
-                    console.error('Error updating:', err);
-                    return res.status(500).json({ msg: 'Failed to update User' });
+                    console.error('Error updating user:', err);
+                    return res.status(500).json({ msg: 'Failed to update user' });
                 }
                 res.json({
                     status: res.statusCode,
@@ -168,6 +181,4 @@ class Users {
     }
 }
 
-export{
-    Users
-}
+export { Users };
