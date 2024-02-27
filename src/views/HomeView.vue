@@ -3,7 +3,7 @@
     <div class="row">
       <div class="display-3" id="Home">
         <!-- <h2>Home</h2> -->
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-12 offset-md-3 mt-5">
           <div class="row align-middle-right">
             <p class="homeText text-white text-dark"> Adopt <br> don't <br> Shop </p>
           </div>

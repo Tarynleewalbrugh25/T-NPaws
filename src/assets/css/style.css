@@ -14,6 +14,7 @@
     text-align: center;
     color: #2c3e50;
     background-color: #E9EDC9;
+    scroll-behavior: none;
    
   }
   
@@ -43,6 +44,17 @@
 
   #myNav{
     background-color: #A3C18F;
+    
+  }
+
+  .router-link :hover{
+    border-bottom: #2c3e50  2px solid;
+  }
+
+
+  nav :router-link {
+    border-bottom: #2c3e50 solid;
+    
   }
   
   
