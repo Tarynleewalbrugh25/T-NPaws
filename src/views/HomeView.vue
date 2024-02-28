@@ -3,11 +3,11 @@
     <div class="row">
       <div class="display-3" id="Home">
         <!-- <h2>Home</h2> -->
-        <div class="col-md-12 offset-md-3 mt-5">
-          <div class="row align-middle-right">
-            <p class="homeText text-white text-dark"> Adopt <br> don't <br> Shop </p>
+        <div class="col">
+          <div class="row align-items-center">
+            <p class="homeText text-dark text-sm-center"> Home is where your pet is</p>
           </div>
-          <button class=" d-block align-bottom text-dark mx-auto text-md-end bg-white">
+          <button class=" d-block align-bottom text-dark mx-auto text-md-end bg-white btn-sm">
              Learn More
             </button>
         </div>
@@ -26,16 +26,7 @@ export default {
 </script>
 
 <style>
-#Home{
-  background-image: url('https://i.ibb.co/kcdkbdn/homepage.jpg') ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  object-fit: cover;
-  margin-top: none;
-  width: 100%;
-  aspect-ratio: 2/1; 
-}
+
 
 
 </style>

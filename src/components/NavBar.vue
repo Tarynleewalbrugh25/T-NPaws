@@ -1,7 +1,7 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-5">
   <div class="container-fluid" id="myNav">
-    <img id="Mylogo" class="img-fluid m-auto" src="https://i.ibb.co/CVPnms3/Screenshot-2024-02-20-144929.png" alt="paws-logo" loading="lazy">
+    <img id="Mylogo" class="img-fluid w-25 justify-content-center" src="https://i.ibb.co/GCPTrdc/super-cute-cats-copy.jpg" alt="paws-logo" loading="lazy">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,11 +20,6 @@
         <li class="nav-item">
             <router-link to="/products" class="nav-link active">
                 Products
-            </router-link>
-        </li>
-        <li class="nav-item">
-            <router-link to="/product" class="nav-link active">
-                Product
             </router-link>
         </li>
         <li class="nav-item">

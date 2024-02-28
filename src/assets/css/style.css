@@ -13,9 +13,9 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    background-color: #E9EDC9;
-    scroll-behavior: none;
-   
+    background-color: white;
+    height: 100;
+
   }
   
   nav {
@@ -27,15 +27,18 @@
     color: #2c3e50;
   }
   
-  /* nav a.router-link-exact-active {
-    color: #42b983;
-  } */
+  nav a.router-link-exact-active  {
+    color: black;
+    border-bottom: #2c3e50  3px solid;
+    
+  }
   
- img[alt='paws-logo']{
-    width: 5rem;
+ /* img[alt='paws-logo']{
+    width: 7rem;
+    height: 5rem;
     padding: 5px;
     aspect-ratio: 1/1;
-  }
+  } */
 
   /* #Mylogo{
     width: 5px;
@@ -43,7 +46,7 @@
   } */
 
   #myNav{
-    background-color: #A3C18F;
+    background-color: #ade5f7;
     
   }
 
