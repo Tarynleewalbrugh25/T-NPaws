@@ -2,14 +2,14 @@
     <div class="container-fluid" id="contact">
         <div class="row d-block d-flex">
             <div class="col-md-6 offset-md-3 m-3 p-2 text-align-center">
-                <h2 class="display-6 justify-content-center text-align-center mt-5">Make Your Mark</h2>
+                <h2 class="display-6 justify-content-center text-black text-align-center mt-5">Lets continue to connect</h2>
                 <!-- <img class="C-logo img-fluid w-25 me-3 mx-auto p-3" src="https://i.ibb.co/CVPnms3/Screenshot-2024-02-20-144929.png" alt="contactLogo" loading="lazy"> -->
             </div>
         </div>
-            <div class="container mb-3">
+            <div class="container m-3">
                 <div class="row d-block d-flex">
-                    <div class="col-md-6 offset-md-3 m-3 p-2 text-align-center">
-                        <h2 class="">Lets continue to connect</h2>
+                    <div class="col-md-6 offset-md-3 m-0 p-0 text-align-center" id="pass">
+                        <!-- <h2 class="text-black">Lets continue to connect</h2> -->
                         <form action="" method="post">
                             <div class="input m-1">
                                 <textarea input type="text" placeholder="Name" cols="50" rows="2"></textarea>
@@ -24,14 +24,12 @@
                                 <textarea input type="text" placeholder="Message" cols="50" rows="4"></textarea>
                             </div>
                             <div>
-                                <button class="d-block align-bottom text-dark mx-auto text-md-end bg-white" cols="50">Submit</button>
+                                <button class="button d-block align-bottom text-dark mx-auto text-md-end bg-white" cols="50">Submit</button>
                             </div>
                         </form>
+                        <!-- <img  src="https://i.ibb.co/VwCQWWm/1.jpg" alt="contactimage"> -->
                     </div>
                     </div>
-                    <!-- <div class="col">
-                        <img class="C-logo img-fluid w-25 me-3 mx-auto p-3" src="https://i.ibb.co/pbZgTsP/cat-footpri.jpg" alt="contactLogo" loading="lazy">
-                    </div> -->
             </div>
         
 
@@ -50,11 +48,17 @@
     height: 23px ;
 }
 
-.container{
-    background-color: rgb(151, 151, 151);
-    padding: 5px;
-    margin: 3rem;
+.button{
+    background-color: #FBBD09;
+
+
 }
+
+/* #pass{
+    background-image: url('https://i.ibb.co/VwCQWWm/1.jpg');
+    background-repeat: no-repeat;
+    
+} */
 
 /* #contact{
     background-image: url('https://i.ibb.co/pbZgTsP/cat-footpri.jpg') ;

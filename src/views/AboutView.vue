@@ -6,10 +6,10 @@
       </div> -->
       <div class="row">
         <div class="col">
-          <img class="img-fluid w-50 m-3" src="https://i.ibb.co/CVPnms3/Screenshot-2024-02-20-144929.png" alt="">
+          <img class="img-fluid img-thumbnail w-75 m-3" src="https://i.ibb.co/CVPnms3/Screenshot-2024-02-20-144929.png" alt="paws">
         </div>
         <div class="col">
-          <p class="text-black m-5"> Paws By T&N is a cat shop that allows cat lovers and non cat lovers to co-existence especially when living with one another. We allow cat lovers to share their space and love. Paws grants NON-cat lovers the opportunity of considering a cat.Paws came about from the combination of Taryn-lee's super Mega love for cats and Ntokozo's semi-resistance towards cats.</p>
+          <p class="text-black m-5 justify-content-center"> Paws By T&N is a cat shop that allows cat lovers and non cat lovers to co-existence especially when living with one another. We allow cat lovers to share their space and love. Paws grants NON-cat lovers the opportunity of considering a cat.Paws came about from the combination of Taryn-lee's super Mega love for cats and Ntokozo's semi-resistance towards cats.</p>
         </div>
       </div>
       <div class="row">

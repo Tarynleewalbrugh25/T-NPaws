@@ -22,7 +22,7 @@
 
 <style scoped>
 #footer{
-    background-color: #A3C18F;
+    background-color: #ade5f7    ;
     font-size: medium;
 }
 

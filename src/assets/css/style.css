@@ -14,7 +14,6 @@
     text-align: center;
     color: #2c3e50;
     background-color: white;
-    height: 100;
 
   }
   
@@ -40,13 +39,15 @@
     aspect-ratio: 1/1;
   } */
 
-  /* #Mylogo{
-    width: 5px;
-    aspect-ratio: 1/1;
-  } */
+  #Mylogo{
+    width: 5em;
+    margin-top: 2px;
+    height:20em;
+  }
 
   #myNav{
     background-color: #ade5f7;
+    /* height: 10rem; */
     
   }
 
