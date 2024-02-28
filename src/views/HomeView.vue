@@ -8,7 +8,8 @@
             <p class="homeText text-dark text-sm-center"> Home is where your pet is</p>
           </div>
           <div>
-            <img class="rounded-pill  rounded-top rounded-top-circle w-25" src="https://i.ibb.co/kSW4WWm/cat-owner.jpg" alt="cat&owner">
+            <img class="w-25" src="https://i.ibb.co/kSW4WWm/cat-owner.jpg" alt="cat&owner">
+            <img src="" alt="">
           </div>
           <button class="btn-sm-3 text-black m-3 rounded-pill p-3" id="btnContact">Learn More</button>
         </div>
@@ -27,9 +28,11 @@ export default {
 </script>
 
 <style>
+
 #btnContact{
   background-color: #FBBD09;
 }
+
 
 
 

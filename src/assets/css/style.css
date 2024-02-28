@@ -14,7 +14,8 @@
     text-align: center;
     color: #2c3e50;
     background-color: white;
-
+    display: grid;
+    grid-template-rows: auto minmax(1fr, 100vh) auto;
   }
   
   nav {
@@ -40,9 +41,9 @@
   } */
 
   #Mylogo{
-    width: 5em;
+    width: 100px;
     margin-top: 2px;
-    height:20em;
+    height:100px;
   }
 
   #myNav{
@@ -60,6 +61,6 @@
     border-bottom: #2c3e50 solid;
     
   }
-  
+
   
 

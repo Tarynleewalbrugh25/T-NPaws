@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div class="row fixed-bottom" id="footer">
+        <div class="row" id="footer">
             <p class="text-black"> Paws by T&N &copy; {{ currentYear }}</p>
         </div>
 
@@ -24,6 +24,10 @@
 #footer{
     background-color: #ade5f7    ;
     font-size: medium;
+    padding: 10px;
 }
 
+/* @media screen <300{
+
+} */
 </style>

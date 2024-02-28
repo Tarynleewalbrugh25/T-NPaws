@@ -1,13 +1,13 @@
 <template>
     <div class="container-fluid" id="contact">
         <div class="row d-block d-flex">
-            <div class="col-md-6 offset-md-3 m-3 p-2 text-align-center">
-                <h2 class="display-6 justify-content-center text-black text-align-center mt-5">Lets continue to connect</h2>
+            <div class="col-md-6 offset-md-3 m-3 p-2 justify-content-center text-align-center">
+                <h2 class="display-6 text-black text-align-center mt-5">Lets continue to connect</h2>
                 <!-- <img class="C-logo img-fluid w-25 me-3 mx-auto p-3" src="https://i.ibb.co/CVPnms3/Screenshot-2024-02-20-144929.png" alt="contactLogo" loading="lazy"> -->
             </div>
         </div>
             <div class="container m-3">
-                <div class="row d-block d-flex">
+                <div class="row d-block d-flex justify-content-center">
                     <div class="col-md-6 offset-md-3 m-0 p-0 text-align-center" id="pass">
                         <!-- <h2 class="text-black">Lets continue to connect</h2> -->
                         <form action="" method="post">
@@ -60,12 +60,12 @@
     
 } */
 
-/* #contact{
-    background-image: url('https://i.ibb.co/pbZgTsP/cat-footpri.jpg') ;
+#contact{
+    background-image: url('https://i.ibb.co/gyZRFT9/fav-cats.jpg') ;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   object-fit: cover;
-} */
+}
 
 </style>
