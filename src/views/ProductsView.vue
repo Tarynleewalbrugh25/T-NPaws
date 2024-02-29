@@ -5,7 +5,7 @@
                 <input type="text" placeholder="Search product by name" cols="30">
                 <button class="rounded-3 m-3">Sort</button>
             </div>
-            <div class="row justify-content-center" >
+            <div class="front row justify-content-center" >
             <Card v-for="info in products" :key="info.id" class="col-md-3 d-flex justify-content-center m-3 ">
              <template #cardHeader >
                   <div class="card-title card-text">{{ info.prodName }}</div>
@@ -52,4 +52,7 @@
   img[alt="profile"]{
     height: 150px;
   }
+
+  
+
   </style>
