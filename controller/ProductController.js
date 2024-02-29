@@ -31,7 +31,7 @@ productRouter.get('/:id', (req, res)=>{
 })
 
 // // Add a new product
-productRouter.post('/addProduct',bodyParser.json(),(req, res)=>{
+productRouter.post('/product',bodyParser.json(),(req, res)=>{
     try{
         products.addProduct(req, res)
     }catch(e){
@@ -43,40 +43,27 @@ productRouter.post('/addProduct',bodyParser.json(),(req, res)=>{
 })
 
 // // Delete a product by ID
-// productRouter.delete('/deleteProduct/:id', async (req, res) => {
-//     try {
-//         const productId = req.params.id;
-//         await products.deleteProduct(productId);
-//         res.json({
-//             status: res.statusCode,
-//             msg: 'Product deleted successfully'
-//         });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({
-//             status: 500,
-//             msg: 'Failed to remove product'
-//         });
-//     }
-// });
+productRouter.delete('/delete/:id', bodyParser.json(), (req, res)=>{
+    try{
+        products.deleteProduct(req, res)
+    }catch(e){
+        res.json({
+            status: res.statusCode,
+            msg: 'Failed to remove product try again later'
+        })
+    }
+})
 
 // // Update a product by ID
-// productRouter.patch('/updateProduct/:id', async (req, res) => {
-//     try {
-//         const productId = req.params.id;
-//         const updatedProduct = await products.updateProduct(productId, req.body);
-//         res.json({
-//             status: res.statusCode,
-//             product: updatedProduct,
-//             msg: 'Product updated successfully'
-//         });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({
-//             status: 500,
-//             msg: 'Failed to update product'
-//         });
-//     }
-// });
+productRouter.patch('/update/:id', bodyParser.json(), (req, res)=>{
+    try{
+        products.updateProduct(req, res)
+    }catch(e){
+        res.json({
+            status: res.statusCode,
+            msg: 'Failed to update product try again later'
+        })
+    }
+})
 
 export { productRouter };

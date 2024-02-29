@@ -30,9 +30,19 @@
                 <td>retrieve a specific one</td>
             </tr>
             <tr>
-                <td>/register</td>
+                <td>/signup</td>
                 <td>POST</td>
                 <td>adding something new </td>
+            </tr>
+            <tr>
+                <td>users/:id</td>
+                <td>DELETE</td>
+                <td>Delete  user</td>
+            </tr>
+            <tr>
+                <td>users/:id</td>
+                <td>PATCH</td>
+                <td>updates users</td>
             </tr>
         </tbody>
     </table>
@@ -49,19 +59,29 @@
         </thread>
         <tbody>
             <tr>
-                <td>/</td>
+                <td>/users</td>
                 <td>GET</td>
                 <td>retrieve all users</td>
             </tr>
             <tr>
-                <td>/:id</td>
+                <td>users/:id</td>
                 <td>GET</td>
                 <td>get 1 users</td>
             </tr>
             <tr>
-                <td>/register</td>
+                <td>users/signup</td>
                 <td>POST</td>
                 <td>Adding new user</td>
+            </tr>
+            <tr>
+                <td>users/user/:id</td>
+                <td>PATCH</td>
+                <td>updates user</td>
+            </tr>
+            <tr>
+                <td>users/user/:id</td>
+                <td>DELETE</td>
+                <td>deletes user</td>
             </tr>
         </tbody>
     </table>
@@ -78,19 +98,29 @@
         </thread>
         <tbody>
             <tr>
-                <td>/</td>
+                <td>/products</td>
                 <td>GET</td>
                 <td>retrieve all products</td>
             </tr>
             <tr>
-                <td>/:id</td>
+                <td>products/:id</td>
                 <td>GET</td>
                 <td>retrieve 1 product</td>
             </tr>
             <tr>
-                <td>/register</td>
+                <td>products/product</td>
                 <td>POST</td>
                 <td>adding new products</td>
+            </tr>
+            <tr>
+                <td>products/product/:id</td>
+                <td>PATCH</td>
+                <td>updating products</td>
+            </tr>
+            <tr>
+                <td>products/product/:id</td>
+                <td>DELETE</td>
+                <td>deletes products</td>
             </tr>
         </tbody>
     </table>
