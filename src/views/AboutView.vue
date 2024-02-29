@@ -46,7 +46,7 @@ img[alt='creator']{
   aspect-ratio: 1/1;
 }
 
-.container-fluid{
+/* .container-fluid{
   background-color: lightyellow;
-}
+} */
 </style>

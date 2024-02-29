@@ -10,9 +10,21 @@
 </template>
 
 <script>
-    export default {
-        name: 'ProductView'
-    }
+      export default {
+        // name:'ProductView',
+    components: {
+        
+    },
+    computed: {
+        product() {
+            return this.$store.state.product;
+        },
+    },
+    mounted() {
+        this.$store.dispatch('fetchProduct');
+    },
+};
+    
 </script>
 
 <style scoped>

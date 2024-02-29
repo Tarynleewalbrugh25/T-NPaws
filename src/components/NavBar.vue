@@ -1,12 +1,12 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top ">
   <div class="container-fluid" id="myNav">
-    <img id="Mylogo" class="img-fluid w-25 justify-content-center" src="https://i.ibb.co/GCPTrdc/super-cute-cats-copy.jpg" alt="paws-logo" loading="lazy">
+    <img id="Mylogo" class="img-fluid justify-content-center" src="https://i.ibb.co/GCPTrdc/super-cute-cats-copy.jpg" alt="paws-logo" loading="lazy">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav position-absolute top-5 end-0 m-5 p-3">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
             <router-link to="/" class="nav-link active">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
