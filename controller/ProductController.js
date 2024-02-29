@@ -19,16 +19,18 @@ productRouter.get('/', (req, res)=>{
 })
 
 // Fetch a product by ID
-productRouter.get('/:id', (req, res)=>{
-    try{
-        products.fetchProducts(req, res)
-    }catch(e){
-        res.json({
+productRouter.get('/:id', (req, res) => {
+    try {
+        products.fetchProduct(req, res); // Use fetchProduct instead of fetchProducts
+    } catch (e) {
+        console.error("Error fetching product:", e);
+        res.status(500).json({
             status: res.statusCode,
-            msg: 'failed to get it'
-        })
+            msg: 'Failed to get product'
+        });
     }
-})
+});
+
 
 // // Add a new product
 productRouter.post('/product',bodyParser.json(),(req, res)=>{

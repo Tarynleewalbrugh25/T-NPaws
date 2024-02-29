@@ -17,16 +17,25 @@ class Products {
         const qry = `
             SELECT prodID, prodName, quantity, amount, Category, prodUrl
             FROM Products
-            WHERE prodID = ${req.params.id};
+            WHERE prodID = ?;
         `;
-        db.query(qry, (err, result) => {
-            if (err) throw err;
+        db.query(qry, [req.params.id], (err, result) => {
+            if (err) {
+                console.error("Error fetching product:", err);
+                res.status(500).json({ error: "Internal Server Error" });
+                return;
+            }
+            if (result.length === 0) {
+                res.status(404).json({ error: "Product not found" });
+                return;
+            }
             res.json({
                 status: res.statusCode,
-                result: result[0]
+                result: result[0] // Assuming you want to return the first (and only) row
             });
         });
     }
+    
     addProduct(req, res) {
         const qry = `
             INSERT INTO Products
