@@ -1,9 +1,8 @@
 <template>
     <div class="container-fluid" id="contact">
-        <div class="row d-block d-flex">
-            <div class="col-md-6 offset-md-3 m-3 p-2 justify-content-center text-align-center">
-                <h2 class="display-6 text-black text-align-center mt-5">Lets continue to connect</h2>
-                <!-- <img class="C-logo img-fluid w-25 me-3 mx-auto p-3" src="https://i.ibb.co/CVPnms3/Screenshot-2024-02-20-144929.png" alt="contactLogo" loading="lazy"> -->
+        <div class="row d-block d-flex justify-content-center">
+            <div class="col-md-6 offset-md-3 m-3 p-2 text-align-center">
+                <h2 class="display-3 text-black mt-5 border-black" id="contactMe">Lets continue to connect</h2>
             </div>
         </div>
             <div class="container m-3">
@@ -27,7 +26,9 @@
                                 <button class="button d-block align-bottom text-dark mx-auto text-md-end bg-white" cols="50">Submit</button>
                             </div>
                         </form>
-                        <!-- <img  src="https://i.ibb.co/VwCQWWm/1.jpg" alt="contactimage"> -->
+                    </div>
+                    <div class="col">
+                        <img class="img-fluid w-50 rounded-3"  src="https://i.ibb.co/D51krQv/IMG-20240228-WA0040.jpg" alt="">
                     </div>
                     </div>
             </div>
@@ -60,12 +61,14 @@
     
 } */
 
-#contact{
-    background-image: url('https://i.ibb.co/gyZRFT9/fav-cats.jpg') ;
+/* #contact{
+    background-image: url('https://i.ibb.co/CVPnms3/Screenshot-2024-02-20-144929.png') ;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
   object-fit: cover;
-}
+} */
+
 
 </style>

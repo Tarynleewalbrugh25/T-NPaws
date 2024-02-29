@@ -7,8 +7,11 @@
 }
 
  /* Navbar styling  */
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+ 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+#app{
+    font-family: "Playfair Display", serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -33,18 +36,17 @@
     
   }
   
- /* img[alt='paws-logo']{
-    width: 7rem;
-    height: 5rem;
-    padding: 5px;
-    aspect-ratio: 1/1;
-  } */
+ img[alt='paws-logo']{
+   height: 250px;
+    
+   
+  }
 
-  #Mylogo{
+  /* #Mylogo{
     width: 100px;
     margin-top: 2px;
     height:100px;
-  }
+  } */
 
   #myNav{
     background-color: #ade5f7;
