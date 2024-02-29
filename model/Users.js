@@ -120,10 +120,10 @@ class Users{
         const qry = `
             UPDATE Users
             SET ?
-            WHERE userID = ?;
+            WHERE userID = ${req.params.id};
         `;
         const { userID } = req.body;
-        db.query(qry, [req.body, userID], (err) => {
+        db.query(qry, [req.body,], (err) => {
             if (err) {
                 console.error('Error updating:', err);
                 return res.status(500).json({ msg: 'Failed to update User' });
@@ -132,6 +132,43 @@ class Users{
                 status: res.statusCode,
                 msg: 'User  updated'
             });
+        });
+    }
+    login(req, res) {
+        const { emailAdd, userPass } = req.body;
+        const qry = `
+            SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPass, userRole, userProfile
+            FROM Users
+            WHERE emailAdd = '${emailAdd}';
+            `;
+        db.query(qry, async (err, result) => {
+            if (err) throw err;
+            if (!result?.length) {
+                res.json({
+                    status: res.statusCode,
+                    msg: 'wrong email address'
+                });
+            } else {
+                //validate password
+                const validPass = await compare(userPass, result[0].userPass);
+                if (validPass) {
+                    const token = createToken({
+                        emailAdd,
+                        userPass
+                    });
+                    res.json({
+                        status: res.statusCode,
+                        msg: 'you are logged in',
+                        token,
+                        result: result[0]
+                    });
+                } else {
+                    res.json({
+                        status: res.statusCode,
+                        msg: 'Please provide the correct password.'
+                    });
+                }
+            }
         });
     }
 }
