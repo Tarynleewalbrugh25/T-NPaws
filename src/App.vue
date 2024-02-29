@@ -14,6 +14,7 @@ import Footer from './components/Footer.vue';
 import Spinner from './components/Spinner.vue';
 
 
+
     export default{
       components:{
     NavBar,

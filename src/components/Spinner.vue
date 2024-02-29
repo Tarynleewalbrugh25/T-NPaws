@@ -17,12 +17,16 @@
         name:'SpinnerComp',
         data(){
             return{
-               display: 'spinner'
+               display: true
             }
         },
-        methods:{
-            
-        }
+        // methods:{
+        //     if(display){
+        //         return this.spinner
+        //     }else{
+        //         fetchData
+        //     }
+        // }
         
     }
 

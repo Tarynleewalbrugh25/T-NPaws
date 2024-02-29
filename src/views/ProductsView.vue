@@ -1,20 +1,52 @@
 <template>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="display-3">
-                <h2> Products</h2>
+    <div class="container">
+      <div class="row">
+                <div class="col-md-3 p-3">
+                <input type="text" placeholder="Search product by name" cols="30">
+                <button class="rounded-3 m-3"> Sort</button>
             </div>
+            <div class="row d-flex justify-content-center">
+            <Card v-for="info in products" :key="info.id">
+             <template #cardHeader >
+                  <div class="card-title card-text">{{ info.prodName }}</div>
+            </template>
+                <template #cardBody>
+                  <img :src="info.prodUrl" class="card-img-top w-25" loading="lazy" alt="profile"/>
+                  <p class="card-text text-sm">{{ info.Category }}</p>
+                  <p>Amount: R{{ info.amount }}</p>
+                </template>
+            </Card>
         </div>
-
+      </div>
     </div>
-</template>
+  </template>
+  <script>
+  import Card from '@/components/Card.vue';
 
-<script>
-    export default {
-        name: 'ProductsView'
-    }
-</script>
+  export default {
+    // name:'ProductsView',
+    components: {
+            Card
+    },
+    computed: {
+        products() {
+            return this.$store.state.products;
+        },
+    },
+    mounted() {
+        this.$store.dispatch('fetchProducts');
+    },
+};
+  </script>
+  <style scoped>
 
-<style scoped>
-
-</style>
+  .card-body{
+    padding: 0px;
+    margin: 0px;
+  }
+   
+  .card-imd-top{
+    width: 100%;
+  }
+   
+  </style>
