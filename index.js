@@ -29,7 +29,7 @@ app.use(
     cookieParser(),
     cors()
 )
-app.get('^/$|/lifechoices', (req, res) => {
+app.get('^/$|/T&NPaws', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, './static/index.html'))
 })
 // app.use('/^')
