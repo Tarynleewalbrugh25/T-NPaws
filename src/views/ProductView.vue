@@ -1,31 +1,28 @@
 <template>
     <div class="container">
-      <div class="row">
-                <div class="col-md-3 ms-auto p-3">
-                <input type="text" placeholder="Search product by name" cols="30">
-                <button class="rounded-3 m-3">Sort</button>
-            </div>
-            <div class="row justify-content-center" >
-            <Card v-for="info in product" :key="info.id" class="col-md-3 d-flex justify-content-center m-3 ">
-             <template #cardHeader >
-                  <div class="card-title card-text">{{ info.prodName }}</div>
-            </template>
+        <div class="row justify-content-center">
+            <Card class="col-md-3 d-flex justify-content-center m-3 ">
+                <template #cardHeader>
+                    <div class="card-title card-text">{{ product?.prodName }}</div>
+                </template>
                 <template #cardBody>
-                  <img :src="info.prodUrl" class="card-img-top w-50" loading="lazy" alt="profile"/>
-                  <p class="card-text text-sm">{{ info.Category }}</p>
-                  <p>Amount: R{{ info.amount }}</p>
+                    <img :src="product?.prodUrl" class="card-img-top w-50" loading="lazy" alt="profile" />
+                    <p class="card-text text-sm">{{ product?.Category }}</p>
+                    <p>Amount: R{{ product?.amount }}</p>
                 </template>
             </Card>
         </div>
-      </div>
     </div>
 </template>
 
 <script>
-      export default {
-        // name:'ProductView',
+import Card from '@/components/Card.vue';
+
+export default {
+    name: 'ProductView',
     components: {
-        
+        Card
+
     },
     computed: {
         product() {
@@ -33,12 +30,10 @@
         },
     },
     mounted() {
-        this.$store.dispatch('fetchProduct');
+        this.$store.dispatch('fetchProduct', this.$route.params);
     },
 };
-    
+
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

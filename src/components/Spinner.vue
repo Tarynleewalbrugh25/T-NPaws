@@ -1,12 +1,10 @@
 <template>
     <div class="row justify-content-center">
-        
-        <div class="spinner-border " v-if="display" role="status">
+        <div class="spinner-border " v-if="!fetchData" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
 <div v-else>
     {{ fetchData }}
-
 </div>
 
     </div>
@@ -17,16 +15,19 @@
         name:'SpinnerComp',
         data(){
             return{
-               display: true
+              fetchData: null
             }
         },
-        // methods:{
-        //     if(display){
-        //         return this.spinner
-        //     }else{
-        //         fetchData
-        //     }
-        // }
+        methods:{
+            fetchDataMethod(){
+                setTimeout(()=>{
+                    this.fetchData = this.$store.dispatch('fetch')
+                })
+            }
+        },
+        created(){
+            this.fetchDataMethod();
+        }
         
     }
 

@@ -54,18 +54,23 @@
 
 }
  
- @media screen and (max-width: 300px){
+ @media screen and (max-width < 300px){
     .container{
         margin: 0px;
-        padding: 10px;
+        padding: 0px;
         justify-content: center;
     }
     #teeandN{
         width: 100%;
     }
-    .contact{
-
-    }
+    .container-fluid{
+    margin: 0px;
+    padding: 0px;
+  }
+  .input{
+    margin: 0px;
+    padding: 0px;
+  }
 
  }
     
